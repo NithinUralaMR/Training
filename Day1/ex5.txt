@@ -1,0 +1,18 @@
+class Substring {
+    public static void main(String[] args) {
+        String str ="ni hhhh ni";
+        int len = str.length();
+        if(len<2)
+        {
+        System.out.println(str);
+        }
+        else
+        {
+           if(str.substring(0,2).equals(str.substring(len-2,len)))
+              {  System.out.println( str.substring(2,len));}
+           else 
+            System.out.println(str);
+    
+}
+}
+}
