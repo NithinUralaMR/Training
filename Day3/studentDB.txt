@@ -1,0 +1,154 @@
+package data;
+
+public class Student {
+	protected int RollNumber;
+	protected String StudentName;
+	
+
+	
+	public Student(int rollNumber, String studentName) {
+		super();
+		RollNumber = rollNumber;
+		StudentName = studentName;
+	}
+
+	public int getRollNumber() {
+		return RollNumber;
+	}
+
+	public void setRollNumber(int rollNumber) {
+		RollNumber = rollNumber;
+	}
+
+	public String getStudentName() {
+		return StudentName;
+	}
+
+	public void setStudentName(String studentName) {
+		StudentName = studentName;
+	}
+
+	public void Show() {
+		// TODO Auto-generated method stub
+		System.out.println("\nStudent details are");
+		System.out.println("student name :"+StudentName+"\nRoll number :"+RollNumber);
+		
+		
+	}
+
+}
+package data;
+
+public class Test extends Student {
+	private int Maths_Mark;
+	private int DS_Mark;
+	private int OOPs_Mark;
+	
+	public Test(int RollNumber,String StudentName,int Maths_Mark, int DS_Mark, int OOPs_Mark) {
+		
+		super(RollNumber,StudentName);
+		this.Maths_Mark = Maths_Mark;
+		this.DS_Mark = DS_Mark;
+		this.OOPs_Mark = OOPs_Mark;
+	}
+
+	
+	public int getMaths_Mark() {
+		return Maths_Mark;
+	}
+
+	public void setMaths_Mark(int maths_Mark) {
+		Maths_Mark = maths_Mark;
+	}
+
+	public int getDS_Mark() {
+		return DS_Mark;
+	}
+
+	public void setDS_Mark(int dS_Mark) {
+		DS_Mark = dS_Mark;
+	}
+
+	public int getOOPs_Mark() {
+		return OOPs_Mark;
+	}
+
+	public void setOOPs_Mark(int oOPs_Mark) {
+		OOPs_Mark = oOPs_Mark;
+	}
+
+	public void show_marks()
+	
+	{
+		super.Show();
+		System.out.println("subject 1 mark =" +Maths_Mark+"Ssubject 2 mark =" +DS_Mark+"subject 3 mark =" +OOPs_Mark);
+	}
+
+}
+package data;
+
+interface Sports {
+	
+	 final int SportsMark = 10;
+	 
+	 abstract public void show_sportswt();
+
+}
+package data;
+
+public class Result extends Test implements Sports {
+
+	public Result(int RollNumber,String StudentName,int SportsMark,int Maths_Mark, int DS_Mark, int OOPs_Mark) {
+		super(RollNumber,StudentName,Maths_Mark, DS_Mark, OOPs_Mark);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void show_sportswt() {
+		// TODO Auto-generated method stub
+		System.out.println("subjects marks are\n =subject 1\t"+getMaths_Mark()+" \nsubject 2\t"+getDS_Mark()+"\nsubject 3\t"+ getOOPs_Mark()+"\nsports\t\t"+SportsMark);
+		System.out.println("\nTotal Marks is = "+(getMaths_Mark()+getDS_Mark()+getOOPs_Mark()+SportsMark));
+	}
+
+	}
+package data;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Scanner str = new Scanner(System.in);
+		
+		System.out.println("Creating student record\n");
+		System.out.println("Enter student Name");
+		String StudentName = str.nextLine();
+		System.out.println("\nEnter student Roll number");
+		int RollNumber = in.nextInt();
+
+		Student stud = new Student(RollNumber,StudentName);
+		stud.Show();
+		
+		
+		System.out.println("\nTest Details\n");
+		System.out.println("Enter subject 1 marks");
+		int Maths_Mark = in.nextInt();
+		System.out.println("\nEnter subject 2 marks");
+		int DS_Mark = in.nextInt();
+		System.out.println("\nEnter subject 3 marks");
+		int OOPs_Mark = in.nextInt();
+		 
+		Test T =new Test(stud.getRollNumber(),stud.getStudentName(),Maths_Mark, DS_Mark, OOPs_Mark);
+		T.Show();
+		
+		Result R = new Result (stud.getRollNumber(),stud.getStudentName(),Maths_Mark, DS_Mark, OOPs_Mark, OOPs_Mark);
+		R.show_sportswt();
+		
+
+	}
+
+}
+
+	
+	

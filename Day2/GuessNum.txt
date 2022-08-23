@@ -1,0 +1,31 @@
+package guess;
+import java.util.*;
+import java.lang.*;
+
+public class GuessMyNum {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Random Ran = new Random();
+		int Guess;
+		int RandomNum;
+		
+		 RandomNum = (int)Ran.nextInt(11);
+		 do
+		 {
+			 System.out.println("Enter number to guess");
+			 Guess= input.nextInt();
+			
+			 if(RandomNum > Guess)
+			 System.out.println("\n Random number is higher number");
+			 
+			 else if(RandomNum < Guess)
+		     System.out.println("Random number is lower number");
+			
+			 else 
+			 System.out.println("correct number");
+					 
+		 }
+		     while(RandomNum != Guess);
+	 }
+}
+	

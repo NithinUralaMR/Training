@@ -1,0 +1,57 @@
+  import java.util.*;
+abstract class Shapes
+{
+     int length;
+     double breadth;
+
+   abstract void area();
+
+}
+    class Triangle extends Shapes
+    {
+        public int area_rect;
+        int height;
+        void area()
+        {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Enter the length and breadth and height");
+            length = s.nextInt();
+            breadth = s.nextInt();
+            height = s.nextInt();
+
+            System.out.println("Area is "+ ((length)/2 *breadth*height));
+        }
+
+    }
+    class Rectangle extends Shapes
+    {
+
+        void area()
+        {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Enter the length and breadth");
+            length = s.nextInt();
+            breadth = s.nextInt();
+            System.out.println("Area is "+ (length * breadth));
+        }
+
+    }
+
+    public class Shape {
+
+        public static void main(String[] args) {
+            {
+
+                System.out.println(" area of Rectangle is ");
+                Shapes shape1 = new Rectangle();
+                shape1.area();
+                System.out.println(" area of Triangle is ");
+                Shapes shape2 = new Triangle();
+                shape2.area();
+            }
+        }
+    }
+
+
+
+

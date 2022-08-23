@@ -1,0 +1,73 @@
+package member;
+
+public class Member {
+String Name;
+int age;
+String phno;
+String adress;
+double salary;
+
+public Member(String Name,int age,String phno,String adress,double salary)
+{
+	this.Name=Name;
+	this.age=age;
+	this.phno=phno;
+	this.adress=adress;
+	this.salary=salary;
+	
+}
+public void printSalary()
+{
+System.out.println("salary :\t" +salary);
+}
+}
+
+
+ class Employee extends Member  {
+    protected String Specialization;
+    
+	public Employee(String Name, int age, String phno, String adress, double salary,String Specialization)
+	{
+		super(Name, age, phno, adress, salary);
+		this.Specialization=Specialization;
+		
+		// TODO Auto-generated constructor stub
+	
+        }
+
+	
+}
+	
+
+
+class Manager extends Member {
+	 protected String department;
+
+	public Manager(String Name, int age, String phno, String adress, double salary,String department)
+	{
+		super(Name, age, phno, adress, salary);
+		this.department= department;
+		// TODO Auto-generated constructor stub
+	}
+
+}
+
+
+public class MainMember {
+
+	public static void main(String[] args) {
+		
+       Employee employee = new Employee ("Nithin",22,"9876555252","udpi",45000.80,"developer");
+       Manager manager = new Manager ("Don",45,"54564545456","Bangalore",100000.00,"HR");
+   
+       System.out.println("employee details are : " +employee.Name+"\t"+employee.age+"\t"+employee.phno+"\t"+employee.adress+"\t"+employee.Specialization+"\t");
+       System.out.println("\nEmployee salary is :\n");
+       employee.printSalary();
+       System.out.println("\nManager details are : " +manager.Name+"\t"+manager.age+"\t"+manager.phno+"\t"+manager.adress+"\t"+manager.department+"\t");
+       
+       System.out.println("\nManager salary is :\n");
+       manager.printSalary();
+	}
+
+}
+

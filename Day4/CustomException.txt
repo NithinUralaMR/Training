@@ -1,0 +1,46 @@
+package CustomException;
+import java.util.Scanner;
+public class Exceptions {
+    public Exceptions(String mess) {
+    }
+
+    public static void sum(int m, int n) throws CustomException {
+        int sum = m + n;
+
+        if (sum >= 100)
+        {
+            throw new CustomException("\nsum is greater then 100\n The sum is : " + sum);
+        }
+        else
+        {
+            System.out.println("sum of 2 integer is" + sum);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter 2 number\n");
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+
+        try
+        {
+            sum(a,b);
+        }
+       catch (CustomException e)
+       {
+           System.out.println("exception caught"+e+"\n");
+        }
+
+
+    }
+}
+
+package CustomException;
+
+public class CustomException extends Exception {
+    public CustomException(String mess)
+    {
+        super(mess);
+    }
+}

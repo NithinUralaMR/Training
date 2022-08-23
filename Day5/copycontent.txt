@@ -1,0 +1,33 @@
+package Filewritter;
+
+import java.io.*;
+
+public class CopyContent {
+    public static void main(String[] args) throws IOException
+    {
+
+        FileWriter fw1 = new FileWriter("file1.txt",true);
+        FileWriter fw2 = new FileWriter("file2.txt",true);
+        FileWriter fw3 = new FileWriter("file3.txt",true);
+        fw1.write("welcome to ");
+        fw2.write("Robosoft\n");
+        FileReader fr1 = new FileReader("file1.txt");
+        FileReader fr2 = new FileReader("file2.txt");
+
+        int m;
+        int n;
+        while((m=fr1.read())!=-1)
+        {
+            fw3.write(m);
+        }
+        while((n=fr2.read())!=-1)
+        {
+            fw3.write(n);
+        }
+        fw1.close();
+        fw2.close();
+        fr1.close();
+        fr2.close();
+        fw3.close();
+    }
+}

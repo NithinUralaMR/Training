@@ -1,0 +1,62 @@
+class Shape{
+	protected int length = 0;
+	protected double breadth =0.0;
+	Shape(int a,double b)
+	{
+		length = a;
+		breadth = b;
+	}
+	void area()
+	{
+		System.out.println("Area is");
+	}
+	
+}
+class Trianglee extends Shape
+{
+    double height = 0.0;
+	Trianglee(int a, double b, double h ) {
+		super(a, b);
+		 height=h;
+		// TODO Auto-generated constructor stub	
+	}
+	
+	@Override
+	void area()
+	{
+		System.out.println("Area is "+ ((super.length)/2 * super.breadth*height));
+	}
+	
+}
+class Rectangle extends Shape
+{
+
+	Rectangle(int a, double b) {
+		super(a, b);
+		// TODO Auto-generated constructor stub	
+	}
+	
+	@Override
+	void area()
+	{
+		System.out.println("Area is "+ (super.length * super.breadth));
+	}
+	
+}
+
+public class Inheritance {
+
+	public static void main(String[] args) {
+		{
+			Shape shape1 = new Shape(8,9.0);
+			shape1.area();
+			System.out.println(" area of Rectangle is ");
+			Shape rectangle1 = new Rectangle(8,9.0);
+			rectangle1.area();
+			System.out.println(" area of Triangle is ");
+			Shape triangle1 = new Trianglee(2,4.0,7.0);
+			triangle1.area();		}
+	}
+		
+
+	}

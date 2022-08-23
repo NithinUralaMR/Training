@@ -1,0 +1,70 @@
+package Bank;
+
+abstract class Interest {
+    abstract void bankName();
+
+    abstract void RateOfInterest();
+}
+
+
+
+public class Axis extends Interest{
+    @Override
+    void bankName() {
+        System.out.println("Bank Name : Axis");
+    }
+
+    @Override
+    void RateOfInterest() {
+        System.out.println("Rate of Interest : 5%");
+
+    }
+}
+
+public class HDFC extends Interest {
+    @Override
+    void bankName() {
+        System.out.println("\nBank Name : HDFC");
+    }
+
+    @Override
+    void RateOfInterest() {
+        System.out.println("Rate of Interest : 12%");
+
+    }
+}
+
+public class SBI extends Interest{
+
+    @Override
+    void bankName() {
+        System.out.println("Bank Name : SBI");
+    }
+
+    @Override
+    void RateOfInterest() {
+        System.out.println("Rate of Interest : 10%");
+
+    }
+}
+
+public class MainInterest {
+
+    public static void display( Interest object) {
+        object.bankName();
+        object.RateOfInterest();
+    }
+
+    public static void main(String[] args) {
+
+        Interest axisInterest = new Axis();
+       display(axisInterest);
+
+
+        Interest HDFCInterest = new HDFC();
+        display(HDFCInterest);
+
+        Interest SBIInterest = new HDFC();
+       display(SBIInterest);
+    }
+}

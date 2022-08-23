@@ -1,0 +1,45 @@
+package UserException;
+
+import CustomException.CustomException;
+import org.omg.CORBA.UserException;
+
+import java.util.Scanner;
+
+public class Exceptions {
+
+        public static void main (String [] args)
+        {
+            Scanner scan = new Scanner(System.in);
+
+            try {
+                System.out.println("Enter Internal marks\n");
+                int internal = scan.nextInt();
+                if (internal > 40)
+                {
+
+                    throw new InternalUserException("internal marks exceed");
+                }
+                else
+                {
+                    System.out.println("internal mark is :"+internal);
+                }
+                    System.out.println("Enter external marks\n");
+                     int external = scan.nextInt();
+                    if (external > 60)
+                {
+                    throw new ExternalUserException("external marks exceed");
+                }
+                    else {
+                        System.out.println("external mark is :"+external);
+                    }
+            }
+            catch (InternalUserException Iex) {
+                System.out.println("exception caught" + Iex + "\n");
+            }
+            catch (ExternalUserException Eex)
+            {
+                System.out.println("exception caught" + Eex + "\n");
+
+             }
+    }
+}

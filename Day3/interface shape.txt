@@ -1,0 +1,38 @@
+package ShapeInter;
+
+interface ShapesInterface {
+	 
+	double calc();
+
+}
+ class Rectangle implements ShapesInterface
+{
+	double length,breadth;
+	void getValues()
+	{
+		length=10.5;
+		breadth=7.5;
+	}
+	public double calc()
+	{
+		return(length*breadth);
+	}
+}
+class Triangle extends Rectangle implements ShapesInterface
+{
+	public double calc()
+	{
+		return(0.5*length*breadth);
+	}
+}
+class shapes
+{
+	public static void main(String[] args) {
+		Rectangle R = new Rectangle();
+		R.getValues();
+		System.out.println("Area of rectangle =" +R.calc());
+		Triangle T = new Triangle();
+		T.getValues();
+		System.out.println("Area of Triangle =" +T.calc());
+	}
+}

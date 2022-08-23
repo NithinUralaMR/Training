@@ -1,0 +1,46 @@
+package StudentInfo;
+
+import UserException.ExternalUserException;
+import UserException.InternalUserException;
+
+import java.util.Scanner;
+
+public class Student {
+    public static void main (String [] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        Scanner str = new Scanner(System.in);
+        try
+        {
+            System.out.println("Enter roll number\n");
+            int rNo = scan.nextInt();
+            System.out.println("Enter name\n");
+            String Name = str.nextLine();
+            System.out.println("Enter age\n");
+            int age = scan.nextInt();
+            System.out.println("Enter course");
+            String course = str.nextLine();
+
+            if (age<=15 || age>=21)
+            {
+                throw new StudentAge("internal marks exceed");
+
+            }
+            System.out.println("student details are:\n"+rNo+"\n"+Name+"\n"+age+"\n"+course);
+        }
+        catch (StudentAge A)
+        {
+            System.out.println("exception caught" + A + "\n");
+
+        }
+        }
+
+    }
+
+package StudentInfo;
+
+    public class StudentAge extends Exception {
+        public StudentAge(String message) {
+            super(message);
+        }
+    }

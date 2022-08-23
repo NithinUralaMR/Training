@@ -1,0 +1,122 @@
+package country;
+
+package country;
+
+import java.util.*;
+public class Country {
+	Scanner input = new Scanner(System.in);
+    String Name;
+	long population;
+	String Capital;
+
+	public Country( String name, long population, String capital) {
+		super();
+		Name = name;
+		this.population = population;
+		Capital = capital;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public long getPopulation() {
+		return population;
+	}
+
+	public void setPopulation(int population) {
+		this.population = population;
+	}
+
+	public String getCapital() {
+		return Capital;
+	}
+
+	public void setCapital(String capital) {
+		Capital = capital;
+	}
+
+	public static void main(String[] args) {
+    ArrayList<Country> countryList = new ArrayList<>();
+    
+	Scanner input = new Scanner(System.in);
+	Scanner var = new Scanner(System.in);
+	while(true)
+	{
+		
+		System.out.println("enter 1 for adding country name");
+		System.out.println("enter 2 for display capital ");
+		System.out.println("enter 3 for display country name and highest population");
+		int choice=var.nextInt();
+	switch(choice)
+	{
+	case 0:System.exit(0);
+	break;
+	case 1:
+		// adding country Name and to check whether country name exist or not
+		
+		String Name , Capital;
+		long population;
+		System.out.println("enter the country to be added");
+	    Name = input.nextLine();
+	    int i =0;
+	    for(i=0;i<countryList.size();i++)
+	    {
+	    	if(Name.equalsIgnoreCase((countryList.get(i)).getName()))
+	    	{
+	    		System.out.println("country is already exist");
+	    	}
+	    }
+	 if(i==countryList.size())
+	 {
+		 System.out.println("enter the country capital");
+		 Capital = input.nextLine();
+		 System.out.println("enter the population");
+		 population = var.nextLong();
+		 
+		 Country count1 = new Country(Name,population,Capital);
+		 countryList.add(count1);
+	 }
+	 break;
+	case 2:
+//		Getting capital of perticular country we entered
+		
+		System.out.println("enter the name of country to display capital");
+		String cap = input.nextLine();
+		 for(int j=0;j<countryList.size();j++)
+		 {
+			 if(cap.equalsIgnoreCase((countryList.get(j)).getName()))
+			 {
+				 System.out.println("capital of "+ cap +"is \t"+ (countryList.get(j)).getCapital());
+				 break;
+			 }
+		 }
+		 break;
+	case 3: 
+		// function to get country with highest population
+		
+		ArrayList<Long> populationList = new ArrayList<>();
+	for(int j=0;j<countryList.size();j++)
+	{
+		populationList.add((countryList.get(j)).getPopulation());
+	}
+	Collections.sort(populationList);
+	long maxPopulation = populationList.get(populationList.size()-1);
+	for(int k=0;k<countryList.size();k++)
+	{
+		if(maxPopulation == ((countryList.get(k).getPopulation())));{
+		System.out.println("\n"+(countryList.get(k).getName() + "\t is country with highest popuolation"));
+	}
+	}
+	break;
+	default:;
+	
+	
+	}
+}
+}
+}

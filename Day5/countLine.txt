@@ -1,0 +1,36 @@
+package count;
+
+import java.io.*;
+
+public class Count {
+    public static void main(String[] args) throws IOException
+    {
+     File f1 = new File("C:\\Nithin\\Day5\\file4.txt");
+     FileInputStream fileInputStream=new FileInputStream(f1);
+     InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+     BufferedReader bufferedReader =new BufferedReader(inputStreamReader);
+
+        String line;
+        int lineCount = 0;
+        int WordCount = 0;
+        int CharCount = 0;
+        // int paraCount = 0;
+        while((line = bufferedReader.readLine())!=null)
+        {
+            lineCount++;
+            if(line.equals(""))
+            {
+                line +=1;
+            }
+            else
+            {
+                CharCount +=line.length();
+                String Word[] = line.split(" ");
+                WordCount +=Word.length;
+            }
+        }
+        System.out.println("Number of lines is:"+ lineCount);
+        System.out.println("character count:"+CharCount);
+        System.out.println("word count:"+WordCount);
+    }
+}

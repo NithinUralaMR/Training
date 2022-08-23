@@ -1,0 +1,96 @@
+pacpackage Date;
+import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Dates {
+
+
+    public static void main(String[] args)
+    {
+        Dates date1 = new Dates();
+        date1.testLocalDateTime();
+    }
+
+    public void testLocalDateTime()
+    {
+        LocalDateTime CurrentDate = LocalDateTime.now();
+        System.out.println("current date and time:" +CurrentDate);
+        LocalDate D = CurrentDate.toLocalDate();
+        System.out.println("Date:" +D);
+        LocalTime time1 = CurrentDate.toLocalTime();
+        System.out.println("Time:" +time1);
+        System.out.println("----------------------------------");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the year");
+        int year = sc.nextInt();
+        System.out.println("enter month");
+        int month = sc.nextInt();
+        System.out.println("enter date");
+        int date = sc.nextInt();
+        LocalDate givenDate = LocalDate.of(year, month, date);
+        System.out.println("given date:"+givenDate);
+        boolean bool = givenDate.equals(D);
+        if (bool)
+        {
+            System.out.println("given date equals to current date\n");
+        }
+        else
+        {
+            System.out.println("given date is not equals to current date");
+        }
+
+        System.out.println("-----------------------------------------");
+        System.out.println("\nEnter the birthday year,month,day");
+        System.out.println("Enter the year");
+        int year1 = sc.nextInt();
+        System.out.println("enter month");
+        int month1 = sc.nextInt();
+        System.out.println("enter date");
+        int date1 = sc.nextInt();
+        LocalDate givenDate1 = LocalDate.of(year1, month1, date1);
+        System.out.println("given date:"+givenDate);
+        boolean bool1 = givenDate1.equals(D);
+        if(bool1)
+        {
+            System.out.println("!!!!!Birth day!!!!");
+        }
+        else
+        {
+            System.out.println("regular day");
+        }
+
+        System.out.println("---------------------------------");
+
+        boolean bool2 = givenDate.isLeapYear();
+        if(bool2)
+        {
+            System.out.println("\nThe year "+year+" is Leap year");
+        }
+        else
+        {
+            System.out.println("The year"+year+"not leap year");
+        }
+        System.out.println("-----------------------------------");
+        Calendar calendar = Calendar.getInstance();
+        System.out.println("Current Date = " + calendar.getTime());
+        // Incrementing hours by 5
+        System.out.println("Date after adding hours to time");
+        calendar.add(Calendar.HOUR_OF_DAY, +5);
+        System.out.println("Updated Date = " + calendar.getTime());
+        
+        System.out.println("------------------------------------");
+        calendar.add(Calendar.YEAR, 1);
+        Date nyear = calendar.getTime();
+        calendar.add(Calendar.YEAR, -2);
+        Date pyear = calendar.getTime();
+        System.out.println("Current year:  "+CurrentDate);
+        System.out.println("date after 1 year:  "+nyear);
+        System.out.println("date before 1 year:  "+pyear);
+
+    }
+
+}

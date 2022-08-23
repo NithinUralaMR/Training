@@ -1,0 +1,103 @@
+package employeedetails;
+
+public class Person {
+    String Name;
+    int age;
+
+    public Person(String name, int age) {
+        this.Name=name;
+        this.age=age;
+    }
+
+    public void display()
+    {
+    }
+}
+package employeedetails;
+
+public class Student extends Person{
+    int rollNo;
+    String Branch;
+
+    public Student(String Name,int age,int rollNo,String Branch)
+    {
+        super(Name,age);
+        this.rollNo=rollNo;
+        this.Branch=Branch;
+    }
+    public void display()
+    {
+        System.out.println("\nstudent details are:\n"+Name+"\n"+age+"\n"+rollNo+"\n"+Branch);
+    }
+}
+
+package employeedetails;
+
+public class Employee extends Person{
+    int ecNo;
+    String doj;
+    public Employee(String Name, int age,int ecNo,String doj) {
+        super(Name,age);
+        this.ecNo=ecNo;
+        this.doj=doj;
+    }
+
+    @Override
+    public void display() {
+        super.display();
+    }
+}
+
+public class Staff extends Employee{
+
+    String designation;
+
+    public Staff(String Name,int age,int ecNo,String doj,String designation)
+    {
+        super(Name,age,ecNo,doj);
+        this.designation=designation;
+    }
+
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("\nstaff details are :"+Name+"\n"+age+"\n"+ecNo+"\n"+doj+"\n"+designation);
+    }
+}
+
+
+package employeedetails;
+
+public class Faculty extends Employee{
+    String designation;
+
+    public Faculty(String Name, int age,int ecNo,String doj,String designation) {
+        super(Name,age,ecNo,doj);
+        this.designation=designation;
+    }
+
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Faculty details are :\n"+Name+"\n"+age+"\n"+designation+"\n"+ecNo+"\n"+doj);
+    }
+}
+
+    public static void main(String[] args) {
+
+         Person Per;
+
+        Per = new Faculty("ganesh",25,1111,new Date().toString(),"Assistant professor");
+        display(Per);
+        Per = new Faculty("Jai",44,66666,new Date().toString(),"professor");
+        display(Per);
+        Per = new Staff("Jhon",55,88888,new Date().toString(),"Technical");
+        display(Per);
+        Per = new Student("Rahul",21,125,"ise");
+        display(Per);
+        Per = new Student("karthik",22,155,"cse");
+        display(Per);
+
+
+    }
+}
