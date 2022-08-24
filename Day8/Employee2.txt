@@ -1,0 +1,137 @@
+package EmployeeDet;
+import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+public class EmpDetails {
+    int id;
+    String name;
+    String gender;
+    int age;
+    String department;
+
+    int yoj;
+    double salary;
+
+    public EmpDetails(int id, String name, String gender, int age, String department, int yoj, double salary) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.department = department;
+        this.yoj = yoj;
+        this.salary = salary;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public int getYoj() {
+        return yoj;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee:" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", department='" + department + '\'' +
+                ", yoj=" + yoj +
+                ", salary=" + salary 
+                ;
+    }
+}
+
+class Update {
+    public static void main(String[] args) {
+
+        List<EmpDetails> employee = new ArrayList<EmpDetails>();
+        ArrayList<Integer> eid = new ArrayList<Integer>();
+
+        Scanner sc = new Scanner(System.in);
+        Scanner sc1 = new Scanner(System.in);
+        while (true) {
+
+
+            System.out.println("enter 1 for enter the employee details");
+            System.out.println("enter 2 for display ");
+            int choice = sc1.nextInt();
+            switch (choice) {
+                case 0:
+                    System.exit(0);
+                    break;
+                case 1:
+                    System.out.println("Enter the employee details");
+                    System.out.println("Enter Name");
+                    String name = sc.nextLine();
+                    int id;
+                    do
+                    {
+                        System.out.println("Enter Id");
+                        id = sc1.nextInt();
+                    }
+                    while (eid.contains(id));
+                    System.out.println("enter salary");
+                    int salary = sc1.nextInt();
+                    System.out.println("Enter gender");
+                    String gender = sc.nextLine();
+                    System.out.println("Enter age");
+                    int age = sc1.nextInt();
+                    System.out.println("year of joining");
+                    int yoj = sc1.nextInt();
+                    System.out.println("Enter department");
+                    String department = sc.nextLine();
+                    EmpDetails emp1 = new EmpDetails(id,name, gender, age, department, yoj, salary);
+                    employee.add(emp1);
+                    eid.add(id);
+                    break;
+
+
+          
+                case 2:
+                {
+    // year of joining greater than 2015
+
+                    System.out.println("year of joining after 2015 :");
+                    employee.stream().filter(name1 -> name1.getYoj() > 2015).forEach(System.out::println);
+                    System.out.println();
+
+    // To Print all Departments in the organization
+
+                    System.out.println("departments in the organization");
+                    employee.stream().map(EmpDetails::getDepartment).distinct().forEach(System.out::println);
+                    System.out.println();
+
+   // Employees age above 30
+
+                    System.out.println("Employees with Age above 30 : \n");
+                    employee.stream().filter(name2 -> name2.age > 30).forEach(System.out::println);
+                    break;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+import java.util.*;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+class Employee
+{
+    String Name;
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    int Id;
+    int Salary;
+
+
+    public float getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(int salary) {
+        Salary = salary;
+    }
+
+    public Employee(String name, int id, int salary)
+    {
+        Name = name;
+        Id = id;
+        Salary = salary;
+    }
+
+    public Object getNoOfEmployees() {
+        int count;
+        for(count=0;count<10;count++)
+        return count;
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee details:" +
+                "Name='" + Name + '\'' +
+                ", Id=" + Id +
+                ", Salary=" + Salary +
+                '}';
+    }
+}
+
+
+public class EmployeeDetails {
+    public static void main(String args[])
+    {
+        ArrayList<Employee> emps = new ArrayList<Employee>();
+
+
+        System.out.println("employee details are:");
+        emps.add(new Employee("Nithin",11,20000));
+        emps.add(new Employee("pra",22,10000));
+        emps.add(new Employee("Vikram",33,50000));
+        emps.forEach(emp-> System.out.println(emp.Name+":"+emp.Id+":"+emp.Salary));
+
+//        printing the  employee with  salary >15000
+
+        System.out.println("\nemployee with  salary >15000:");
+        Stream<Employee> filtered_data = emps.stream().filter(e -> e.Salary > 15000);
+        filtered_data.forEach(data -> System.out.println(data.Name+":"+data.Id+":"+data.Salary));
+
+
+//        Find the employee name starts with letter 'V'
+
+        System.out.println("\nemployee name starts with letter 'V'");
+        emps.stream().filter(emp1 -> (emp1.Name.startsWith("v")) || emp1.Name.startsWith("V")).forEach(emp1 -> System.out.println(emp1.Name));
+
+
+//         To find max salary
+
+        System.out.println("\nEmployee details having Max salary : "+emps.stream().max(Comparator.comparingInt(employee-> employee.Salary)).get());
+
+
+
+//        To find total number of employees
+
+        System.out.println("\nTotal no.of employees:");
+        long total = emps.stream().count();
+        System.out.println(total);
+
+
+//        Find the employee name length more than four.
+
+        System.out.println("\nEmployee name with length more than four");
+        Stream<Employee> filtered_data1 = emps.stream().filter(e -> e.Name.length() > 4);
+        filtered_data1.forEach(data1 -> System.out.println(data1.Name+":"+data1.Id+":"+data1.Salary));
+
+
+
+//        Sort the employee details based on name
+
+        System.out.println("Employee details according to the name");
+        emps.stream().map(employee -> employee.getName().toUpperCase()).sorted().forEach(System.out::println);
+
+
+    }
+}
+
